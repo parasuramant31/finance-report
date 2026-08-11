@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance Reports</title>
+  </head>
+  <body>
+    <header>
+      <h1>Finance Reports</h1>
+
+      <nav aria-label="Main navigation">
+        <a href="#">Dashboard</a>
+        <a href="#">Transactions</a>
+        <a href="#">Reports</a>
+        <a href="#">Settings</a>
+      </nav>
+    </header>
+    <main>
+      <section aria-labelledby="summary-heading">
+        <h2 id="summary-heading">Financial Summary</h2>
+
+        <article>
+          <h3>Total Revenue</h3>
+          <p>₹25,00,000</p>
+        </article>
+
+        <article>
+          <h3>Total Expenses</h3>
+          <p>₹10,00,000</p>
+        </article>
+
+        <article>
+          <h3>Net Profit</h3>
+          <p>₹15,00,000</p>
+        </article>
+
+        <article>
+          <h3>Total Budget</h3>
+          <p>₹20,00,000</p>
+        </article>
+      </section>
+      <section aria-labelledby="filter-heading">
+        <h2 id="filter-heading">Filter Transactions</h2>
+
+        <form>
+          <label for="transaction-type">Transaction Type</label>
+
+          <select id="transaction-type" name="transactionType">
+            <option value="">All</option>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+
+          <label for="start-date">Start Date</label>
+          <input type="date" id="start-date" name="startDate" />
+
+          <label for="end-date">End Date</label>
+          <input type="date" id="end-date" name="endDate" />
+
+          <button type="submit">Apply Filters</button>
+        </form>
+      </section>
+      <section aria-labelledby="transactions-heading">
+        <h2 id="transactions-heading">Recent Transactions</h2>
+
+        <table>
+          <caption>
+            Recent financial transactions
+          </caption>
+
+          <thead>
+            <tr>
+              <th scope="col">Transaction ID</th>
+              <th scope="col">Date</th>
+              <th scope="col">Description</th>
+              <th scope="col">Type</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>TXN001</td>
+              <td>10 Aug 2026</td>
+              <td>Office Rent</td>
+              <td>Expense</td>
+              <td>₹50,000</td>
+              <td>Paid</td>
+            </tr>
+
+            <tr>
+              <td>TXN002</td>
+              <td>11 Aug 2026</td>
+              <td>Client Payment</td>
+              <td>Income</td>
+              <td>₹1,50,000</td>
+              <td>Received</td>
+            </tr>
+
+            <tr>
+              <td>TXN003</td>
+              <td>12 Aug 2026</td>
+              <td>Software License</td>
+              <td>Expense</td>
+              <td>₹25,000</td>
+              <td>Pending</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section aria-labelledby="budget-heading">
+        <h2 id="budget-heading">Budget Overview</h2>
+
+        <dl>
+          <dt>Annual Budget</dt>
+          <dd>₹20,00,000</dd>
+
+          <dt>Used Budget</dt>
+          <dd>₹12,00,000</dd>
+
+          <dt>Remaining Budget</dt>
+          <dd>₹8,00,000</dd>
+        </dl>
+      </section>
+      <section aria-labelledby="export-heading">
+        <h2 id="export-heading">Export Report</h2>
+
+        <button type="button">Export CSV</button>
+        <button type="button">Export PDF</button>
+        <button type="button">Print Report</button>
+      </section>
+      <footer>
+        <p>&copy; 2026 Finance Management System</p>
+
+        <nav aria-label="Footer navigation">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact</a>
+        </nav>
+      </footer>
+    </main>
+  </body>
+</html>
