@@ -1,372 +1,233 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta
-        name="description"
-        content="Finance reports dashboard showing financial summary, transactions, budget overview and report export options."
-    >
-<link rel="stylesheet" href="style.css">
+      name="description"
+      content="Finance reports dashboard showing financial summary, transactions, budget overview and report export options."
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Finance Reports</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <!-- Header -->
     <header class="site-header">
+      <h1>Finance Reports</h1>
 
-        <h1>Finance Reports</h1>
-
-        <!-- Main Navigation -->
-        <nav
-            class="main-navigation"
-            aria-label="Main navigation"
-        >
-            <a class="nav-link" href="#">Dashboard</a>
-            <a class="nav-link" href="#">Transactions</a>
-            <a class="nav-link" href="#">Reports</a>
-            <a class="nav-link" href="#">Settings</a>
-        </nav>
-
+      <!-- Main Navigation -->
+      <nav class="main-navigation" aria-label="Main navigation">
+        <a class="nav-link" href="#">Dashboard</a>
+        <a class="nav-link" href="#">Transactions</a>
+        <a class="nav-link" href="#">Reports</a>
+        <a class="nav-link" href="#">Settings</a>
+      </nav>
     </header>
-
 
     <!-- Main Content -->
     <main>
+      <!-- Financial Summary -->
+      <section class="summary-section" aria-labelledby="summary-heading">
+        <h2 id="summary-heading">Financial Summary</h2>
+
+        <!-- Reusable Summary Card -->
+        <article class="summary-card">
+          <h3>Total Revenue</h3>
+          <p>₹25,00,000</p>
+        </article>
+
+        <article class="summary-card">
+          <h3>Total Expenses</h3>
+          <p>₹10,00,000</p>
+        </article>
+
+        <article class="summary-card">
+          <h3>Net Profit</h3>
+          <p>₹15,00,000</p>
+        </article>
 
-        <!-- Financial Summary -->
-        <section
-            class="summary-section"
-            aria-labelledby="summary-heading"
-        >
+        <article class="summary-card">
+          <h3>Total Budget</h3>
+          <p>₹20,00,000</p>
+        </article>
+      </section>
 
-            <h2 id="summary-heading">
-                Financial Summary
-            </h2>
+      <!-- Budget Alert -->
+      <section
+        class="alert"
+        role="alert"
+        aria-labelledby="budget-alert-heading"
+      >
+        <h2 id="budget-alert-heading">Budget Alert</h2>
 
-            <!-- Reusable Summary Card -->
-            <article class="summary-card">
-                <h3>Total Revenue</h3>
-                <p>₹25,00,000</p>
-            </article>
+        <p>Your budget usage has reached 60% of the allocated budget.</p>
+      </section>
 
-            <article class="summary-card">
-                <h3>Total Expenses</h3>
-                <p>₹10,00,000</p>
-            </article>
+      <!-- Transaction Filter -->
+      <section class="filter-section" aria-labelledby="filter-heading">
+        <h2 id="filter-heading">Filter Transactions</h2>
 
-            <article class="summary-card">
-                <h3>Net Profit</h3>
-                <p>₹15,00,000</p>
-            </article>
+        <form class="filter-form">
+          <!-- Transaction Type -->
+          <div class="form-field">
+            <label for="transaction-type"> Transaction Type </label>
 
-            <article class="summary-card">
-                <h3>Total Budget</h3>
-                <p>₹20,00,000</p>
-            </article>
+            <select id="transaction-type" name="transactionType">
+              <option value="">All</option>
+              <option value="income">Income</option>
+              <option value="expense">Expense</option>
+            </select>
+          </div>
 
-        </section>
+          <!-- Start Date -->
+          <div class="form-field">
+            <label for="start-date"> Start Date </label>
 
+            <input type="date" id="start-date" name="startDate" required />
+          </div>
 
-        <!-- Budget Alert -->
-        <section
-            class="alert"
-            role="alert"
-            aria-labelledby="budget-alert-heading"
-        >
+          <!-- End Date -->
+          <div class="form-field">
+            <label for="end-date"> End Date </label>
 
-            <h2 id="budget-alert-heading">
-                Budget Alert
-            </h2>
+            <input type="date" id="end-date" name="endDate" required />
+          </div>
 
-            <p>
-                Your budget usage has reached 60% of the allocated budget.
-            </p>
+          <!-- Form Action -->
+          <button class="action-button" type="submit">Apply Filters</button>
+        </form>
+      </section>
 
-        </section>
+      <!-- Recent Transactions -->
+      <section
+        class="transactions-section"
+        aria-labelledby="transactions-heading"
+      >
+        <h2 id="transactions-heading">Recent Transactions</h2>
 
+        <table class="transaction-table">
+          <caption>
+            Recent financial transactions
+          </caption>
 
-        <!-- Transaction Filter -->
-        <section
-            class="filter-section"
-            aria-labelledby="filter-heading"
-        >
+          <thead>
+            <tr>
+              <th scope="col">Transaction ID</th>
 
-            <h2 id="filter-heading">
-                Filter Transactions
-            </h2>
+              <th scope="col">Date</th>
 
-            <form class="filter-form">
+              <th scope="col">Description</th>
 
-                <!-- Transaction Type -->
-                <div class="form-field">
+              <th scope="col">Type</th>
 
-                    <label for="transaction-type">
-                        Transaction Type
-                    </label>
+              <th scope="col">Amount</th>
 
-                    <select
-                        id="transaction-type"
-                        name="transactionType"
-                    >
-                        <option value="">All</option>
-                        <option value="income">Income</option>
-                        <option value="expense">Expense</option>
-                    </select>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
 
-                </div>
+          <tbody>
+            <tr>
+              <td>TXN001</td>
 
+              <td>10 Aug 2026</td>
 
-                <!-- Start Date -->
-                <div class="form-field">
+              <td>Office Rent</td>
 
-                    <label for="start-date">
-                        Start Date
-                    </label>
+              <td>Expense</td>
 
-                    <input
-                        type="date"
-                        id="start-date"
-                        name="startDate"
-                        required
-                    >
+              <td>₹50,000</td>
 
-                </div>
+              <td>Paid</td>
+            </tr>
 
+            <tr>
+              <td>TXN002</td>
 
-                <!-- End Date -->
-                <div class="form-field">
+              <td>11 Aug 2026</td>
 
-                    <label for="end-date">
-                        End Date
-                    </label>
+              <td>Client Payment</td>
 
-                    <input
-                        type="date"
-                        id="end-date"
-                        name="endDate"
-                        required
-                    >
+              <td>Income</td>
 
-                </div>
+              <td>₹1,50,000</td>
 
+              <td>Received</td>
+            </tr>
 
-                <!-- Form Action -->
-                <button
-                    class="action-button"
-                    type="submit"
-                >
-                    Apply Filters
-                </button>
+            <tr>
+              <td>TXN003</td>
 
-            </form>
+              <td>12 Aug 2026</td>
 
-        </section>
+              <td>Software License</td>
 
+              <td>Expense</td>
 
-        <!-- Recent Transactions -->
-        <section
-            class="transactions-section"
-            aria-labelledby="transactions-heading"
-        >
+              <td>₹25,000</td>
 
-            <h2 id="transactions-heading">
-                Recent Transactions
-            </h2>
+              <td>Pending</td>
+            </tr>
+          </tbody>
+        </table>
 
-            <table class="transaction-table">
+        <!-- Empty State -->
+        <p class="empty-state">
+          No transactions found for the selected filters.
+        </p>
+      </section>
 
-                <caption>
-                    Recent financial transactions
-                </caption>
+      <!-- Budget Overview -->
+      <section class="budget-section" aria-labelledby="budget-heading">
+        <h2 id="budget-heading">Budget Overview</h2>
 
-                <thead>
+        <dl class="budget-list">
+          <dt>Annual Budget</dt>
+          <dd>₹20,00,000</dd>
 
-                    <tr>
+          <dt>Used Budget</dt>
+          <dd>₹12,00,000</dd>
 
-                        <th scope="col">
-                            Transaction ID
-                        </th>
+          <dt>Remaining Budget</dt>
+          <dd>₹8,00,000</dd>
+        </dl>
+      </section>
+      <!-- Monthly Summary -->
+      <section
+        class="monthly-summary-section"
+        aria-labelledby="monthly-summary-heading"
+      >
+        <h2 id="monthly-summary-heading">Monthly Summary</h2>
 
-                        <th scope="col">
-                            Date
-                        </th>
+        <div id="monthly-summary"></div>
+      </section>
 
-                        <th scope="col">
-                            Description
-                        </th>
+      <!-- Export Report -->
+      <section class="export-section" aria-labelledby="export-heading">
+        <h2 id="export-heading">Export Report</h2>
 
-                        <th scope="col">
-                            Type
-                        </th>
+        <button class="action-button" type="button">Export CSV</button>
 
-                        <th scope="col">
-                            Amount
-                        </th>
+        <button class="action-button" type="button">Export PDF</button>
 
-                        <th scope="col">
-                            Status
-                        </th>
-
-                    </tr>
-
-                </thead>
-
-
-                <tbody>
-
-                    <tr>
-
-                        <td>TXN001</td>
-
-                        <td>10 Aug 2026</td>
-
-                        <td>Office Rent</td>
-
-                        <td>Expense</td>
-
-                        <td>₹50,000</td>
-
-                        <td>Paid</td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>TXN002</td>
-
-                        <td>11 Aug 2026</td>
-
-                        <td>Client Payment</td>
-
-                        <td>Income</td>
-
-                        <td>₹1,50,000</td>
-
-                        <td>Received</td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>TXN003</td>
-
-                        <td>12 Aug 2026</td>
-
-                        <td>Software License</td>
-
-                        <td>Expense</td>
-
-                        <td>₹25,000</td>
-
-                        <td>Pending</td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-
-            <!-- Empty State -->
-            <!-- <p class="empty-state">
-                No transactions found for the selected filters.
-            </p> -->
-
-        </section>
-
-
-        <!-- Budget Overview -->
-        <section
-            class="budget-section"
-            aria-labelledby="budget-heading"
-        >
-
-            <h2 id="budget-heading">
-                Budget Overview
-            </h2>
-
-            <dl class="budget-list">
-
-                <dt>Annual Budget</dt>
-                <dd>₹20,00,000</dd>
-
-                <dt>Used Budget</dt>
-                <dd>₹12,00,000</dd>
-
-                <dt>Remaining Budget</dt>
-                <dd>₹8,00,000</dd>
-
-            </dl>
-
-        </section>
-
-
-        <!-- Export Report -->
-        <section
-            class="export-section"
-            aria-labelledby="export-heading"
-        >
-
-            <h2 id="export-heading">
-                Export Report
-            </h2>
-
-            <button
-                class="action-button"
-                type="button"
-            >
-                Export CSV
-            </button>
-
-            <button
-                class="action-button"
-                type="button"
-            >
-                Export PDF
-            </button>
-
-            <button
-                class="action-button"
-                type="button"
-            >
-                Print Report
-            </button>
-
-        </section>
-
+        <button class="action-button" type="button">Print Report</button>
+      </section>
     </main>
-
 
     <!-- Footer -->
     <footer class="site-footer">
+      <p>&copy; 2026 Finance Management System</p>
 
-        <p>
-            &copy; 2026 Finance Management System
-        </p>
+      <nav class="footer-navigation" aria-label="Footer navigation">
+        <a class="nav-link" href="#"> Privacy Policy </a>
 
-        <nav
-            class="footer-navigation"
-            aria-label="Footer navigation"
-        >
-            <a class="nav-link" href="#">
-                Privacy Policy
-            </a>
+        <a class="nav-link" href="#"> Terms &amp; Conditions </a>
 
-            <a class="nav-link" href="#">
-                Terms &amp; Conditions
-            </a>
-
-            <a class="nav-link" href="#">
-                Contact
-            </a>
-        </nav>
-
+        <a class="nav-link" href="#"> Contact </a>
+      </nav>
     </footer>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
